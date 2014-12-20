@@ -15,14 +15,117 @@ Was code book submitted to GitHub that modified and updates the codebooks availa
 
 These variables identify the unique subject/activity pair the variables relate to:
 
-- Subject: the integer subject ID.
-- Activity: the string activity name:
-..* Walking
-..* Walking Upstairs
+* Subject: the integer subject ID.
+* Activity: the string activity name:
+** Walking
+** Walking Upstairs
 ..* Walking Downstairs
 ..* Sitting
 ..* Standing
 ..* Laying
+
+All variables are the mean of a measurement for each subject and activity. This is indicated by the initial Mean in the variable name. All values are floating point numbers.
+.    Time domain body acceleration mean along X, Y, and Z:
+o	tBodyAcc.mean.X
+o	tBodyAcc.mean.Y 
+o	tBodyAcc.mean.Z
+.	Time domain body acceleration standard deviation along X, Y, and Z:
+o	tBodyAcc.std.X
+o	tBodyAcc.std.Y 
+o	tBodyAcc.std.Z
+.	Time domain gravity acceleration mean along X, Y, and Z:
+o	tGravityAcc.mean.Y
+o	tGravityAcc.mean.Y 
+o	tGravityAcc.mean.Z 
+.	Time domain gravity acceleration standard deviation along X, Y, and Z:
+o	tGravityAcc.std.Y
+o	tGravityAcc.std.Y 
+o	tGravityAcc.std.Z 
+.	Time domain body jerk mean along X, Y, and Z:
+o	tBodyAccJerk.mean.X
+o	tBodyAccJerk.mean.Y
+o	tBodyAccJerk.mean.Z
+.	Time domain body jerk standard deviation along X, Y, and Z:
+o	tBodyAccJerk.std.X
+o	tBodyAccJerk.std.Y
+o	tBodyAccJerk.std.Z
+.	Time domain gyroscope mean along X, Y, and Z:
+o	tBodyGyro.mean.X 
+o	tBodyGyro.mean.Y 
+o	tBodyGyro.mean.Z 
+.	Time domain gyroscope standard deviation along X, Y, and Z:
+o	tBodyGyro.std.X 
+o	tBodyGyro.std.Y 
+o	tBodyGyro.std.Z 
+.	Time domain gyroscope jerk mean along X, Y, and Z:
+o	tBodyGyroJerk.mean.X
+o	tBodyGyroJerk.mean.Y
+o	tBodyGyroJerk.mean.Z
+.	Time domain gyroscope jerk standard deviation along X, Y, and Z:
+o	tBodyGyroJerk.std.X
+o	tBodyGyroJerk.std.Y
+o	tBodyGyroJerk.std.Z
+.	Time domain body acceleration magnitude mean:
+o	tBodyAccMag.mean 
+.	Time domain body acceleration magnitude standard deviation:
+o	tBodyAccMag.std 
+.	Time domain gravity acceleration magnitude mean:
+o	tGravityAccMag.mean 
+.	Time domain gravity acceleration magnitude standard deviation:
+o	tGravityAccMag.std
+.	Time domain body jerk magnitude mean:
+o	tBodyAccJerkMag.mean
+.	Time domain body jerk magnitude standard deviation:
+o	tBodyAccJerkMag.std 
+.	Time domain gyroscope magnitude mean:
+o	tBodyGyroMag.mean
+.	Time domain gyroscope magnitude standard deviation:
+o	tBodyGyroMag.std 
+.	Time domain gyroscope jerk magnitude mean:
+o	tBodyGyroJerkMag.mean
+.	Time domain gyroscope jerk magnitude standard deviation:
+o	tBodyGyroJerkMag.std 
+.	Frequency domain body acceleration mean along X, Y, and Z:
+o	fBodyAcc.mean.X 
+o	fBodyAcc.mean.Y 
+o	fBodyAcc.mean.Z 
+.	Frequency domain body acceleration standard deviation along X, Y, and Z:
+o	fBodyAcc.std.X 
+o	fBodyAcc.std.Y 
+o	fBodyAcc.std.Z 
+.	Frequency domain body jerk mean along X, Y, and Z:
+o	fBodyAccJerk.mean.X 
+o	fBodyAccJerk.mean.Y 
+o	fBodyAccJerk.mean.Z 
+.	Frequency domain body jerk standard deviation along X, Y, and Z:
+o	fBodyAccJerk.std.X 
+o	fBodyAccJerk.std.Y 
+o	fBodyAccJerk.std.Z 
+.	Frequency domain gyroscope mean along X, Y, and Z:
+o	fBodyGyro.mean.X 
+o	fBodyGyro.mean.Y 
+o	fBodyGyro.mean.Z 
+.	Frequency domain gyroscope standard deviation along X, Y, and Z:
+o	fBodyGyro.std.X 
+o	fBodyGyro.std.Y 
+o	fBodyGyro.std.Z 
+.	Frequency domain body acceleration magnitude mean:
+o	fBodyAccMag.mean
+.	Frequency domain body acceleration magnitude standard deviation:
+o	fBodyAccMag.std 
+.	Frequency domain body jerk magnitude mean:
+o	fBodyBodyAccJerkMag.mean 
+.	Frequency domain body jerk magnitude standard deviation:
+o	fBodyBodyAccJerkMag.std
+.	Frequency domain gyroscope magnitude mean:
+o	fBodyBodyGyroMag.mean
+.	Frequency domain gyroscope magnitude standard deviation:
+o	fBodyBodyGyroMag.std 
+.	Frequency domain gyroscope jerk magnitude mean:
+o	fBodyBodyGyroJerkMag.mean
+.	Frequency domain gyroscope jerk magnitude standard deviation:
+o	fBodyBodyGyroJerkMag.std
+
 
 ##Merging and Manipulating Data
 

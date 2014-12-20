@@ -20,7 +20,7 @@ The work can be split into three parts:
 The data that was used in this Course was obtained from: (http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones). 
 The Data was downloaded using this link: (https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip). 
 
-A directory 'G&CD_Dir' is created if it does not already exist and the data is downloaded in it. 'unzip' function is used to unzip the files in the same directory. x_test, x_train, y_test, y_train, subject_test, subject_train and features files are loaded from their respective folders using the 'read.table' function. 
+A directory `G&CD_Dir` is created if it does not already exist and the data is downloaded in it. `unzip` function is used to unzip the files in the same directory. x_test, x_train, y_test, y_train, subject_test, subject_train and features files are loaded from their respective folders using the `read.table` function. 
 
 
 

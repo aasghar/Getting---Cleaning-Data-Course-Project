@@ -17,7 +17,7 @@ These variables identify the unique subject/activity pair the variables relate t
 
 * Subject: the integer subject ID.
 * Activity: the string activity name:
-** Walking
+    * Walking
 ** Walking Upstairs
 ..* Walking Downstairs
 ..* Sitting
@@ -25,11 +25,11 @@ These variables identify the unique subject/activity pair the variables relate t
 ..* Laying
 
 All variables are the mean of a measurement for each subject and activity. This is indicated by the initial Mean in the variable name. All values are floating point numbers.
-.    Time domain body acceleration mean along X, Y, and Z:
+* Time domain body acceleration mean along X, Y, and Z:
 o	tBodyAcc.mean.X
 o	tBodyAcc.mean.Y 
 o	tBodyAcc.mean.Z
-.	Time domain body acceleration standard deviation along X, Y, and Z:
+* Time domain body acceleration standard deviation along X, Y, and Z:
 o	tBodyAcc.std.X
 o	tBodyAcc.std.Y 
 o	tBodyAcc.std.Z

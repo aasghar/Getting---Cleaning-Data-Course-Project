@@ -1,12 +1,3 @@
----
-title: "CodeBook"
-author: "Ali Asghar"
-date: "Saturday, December 20, 2014"
-output: html_document
----
-
-Was code book submitted to GitHub that modified and updates the codebooks available to you with the data to indicate all the variables and summaries you calculated, along with units, and any other relevant information?
-
 
 #Code Book for Course Project
 
@@ -24,7 +15,10 @@ These variables identify the unique subject/activity pair the variables relate t
     * Standing
     * Laying
 
-All variables are the mean of a measurement for each subject and activity. This is indicated by the initial Mean in the variable name. All values are floating point numbers.
+##All Measurement Means
+
+All variables are the mean of a measurement for each subject and activity. The measurment variable labels have been modified to remove characters such as "-" and "()"
+
 * Time domain body acceleration mean along X, Y, and Z:
     * tBodyAcc.mean.X
     * tBodyAcc.mean.Y 
@@ -125,31 +119,5 @@ All variables are the mean of a measurement for each subject and activity. This 
     * fBodyBodyGyroJerkMag.mean
 * Frequency domain gyroscope jerk magnitude standard deviation:
     * fBodyBodyGyroJerkMag.std
-
-
-##Merging and Manipulating Data
-
-##Writing tidy data to text file
-
-
-##Hello
-###Hello
-> yes this is a quote
-
-*Hello
-
-
-
-```{r}
-summary(cars)
-```
-
-You can also embed plots, for example:
-
-```{r, echo=FALSE}
-plot(cars)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
 

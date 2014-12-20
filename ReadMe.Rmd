@@ -11,12 +11,20 @@ I was able to follow the README in the directory that explained what the analysi
 
 This repository contains the work that has been done to clean and tidy-up data for the Coursera 'Getting and Cleaning Data' Course.
 
+This Repository has the following files: 
+- run_analysis.R: contains the code to download, manipulate and write a tidy dataset to a text file
+- CodeBook.md: Contains information on the variables in this repository
+- tidyData.txt: Final tidy data created from step 5 of the Course Project Instructions. 
+
+The files are described below in detail: 
+## run_analysis.R
+
 The work can be split into three parts: 
 - Downloading and Loading Data
 - Merging, Cleaning and Manipulating Data
 - Writing data to output file
 
-##Downloading and Loading Data
+###Downloading and Loading Data
 The data that was used in this Course was obtained from: (http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones). 
 The Data was downloaded using this link: (https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip). 
 
@@ -24,7 +32,7 @@ A directory `G&CD_Dir` is created if it does not already exist and the data is d
 
 The orginal x_test and x_train data consists of 561 variables. These 561 variables are named in the `features` data. The subject_test and subject_train data subject number that which each row of x_test and x_train data corresponds to. y_test and y_train data consists of the activity being performed by each subject. 
 
-##Merging, Cleaning and Manipulating Data
+###Merging, Cleaning and Manipulating Data
 
 First, the `dplyr` package was loaded (assuming that the user already has the package installed.). `dplyr` package is then used to merge, clean and manipulate the data. All the loaded dataframe are converted to `tbl_df` format for easier data manipulation and viewing. 
 
@@ -42,7 +50,7 @@ Next, `merged_SubjectData`, `merged_YData` and `merged_XData` were all merged us
 
 To get a independent tidy data set with the average of each variable for each activity and each subject, the `tidyDataSet_1` was first grouped by `subject` and then by `activity` using the `group_by` funtion in the `dplyr` package. Then the `summarise` function was used to generate a new dataframe named `tidyDataSet_2` where the mean of each variable for each activity and each subject was given. The head of the resulting dataset is give below: 
 
-`
+```{r}
 > head(tidyDataSet_2)
 Source: local data frame [6 x 68]
 Groups: subject
@@ -54,29 +62,32 @@ Groups: subject
 4       1            WALKING       0.2773308    -0.017383819      -0.1111481
 5       1 WALKING_DOWNSTAIRS       0.2891883    -0.009918505      -0.1075662
 6       1   WALKING_UPSTAIRS       0.2554617    -0.023953149      -0.0973020
-`
+```
 
 
+###Writing Output Data
 
-
-
-
-
-Include downloading original Data and saving it in the working file
-
-Include the code for reading the file in the ReadMe: 
-data <- read.table(file_path, header = TRUE) 
-"reference thread on Forum" : https://class.coursera.org/getdata-016/forum/thread?thread_id=50
-
+After Merging, Cleaning and Manipulating the data, I end up with the tidy data that was required by the assignment. This data is lastly written to a text file for submission. The code used to write the data to a text file in a new output directory folder is given below: 
 
 ```{r}
-summary(cars)
+if(!file.exists(output)) { dir.create(output) }
+write.csv(tidyDataSet_2, "./output/tidyData.txt")
 ```
 
-You can also embed plots, for example:
 
-```{r, echo=FALSE}
-plot(cars)
+This text file can then be read by using this command (this code is used from the forum discussions and thus the thread is cited (https://class.coursera.org/getdata-016/forum/thread?thread_id=50): 
+
+```{r}
+data <- read.table("./output/tidyData.txt", header = TRUE)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+explain everything in the repository. 
+
+
+## CodeBook.md 
+
+CodeBook.md contains information about all the variables in this repository.
+
+## tidyData.txt
+
+This text file contains the final tidy data created from step 5 of the Course Project Instructions.This file was created as a result of writing data in the run_analysis.R file. 

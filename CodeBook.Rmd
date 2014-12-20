@@ -15,14 +15,14 @@ Was code book submitted to GitHub that modified and updates the codebooks availa
 
 These variables identify the unique subject/activity pair the variables relate to:
 
--Subject: the integer subject ID.
--Activity: the string activity name:
---Walking
---Walking Upstairs
---Walking Downstairs
---Sitting
---Standing
---Laying
+- Subject: the integer subject ID.
+- Activity: the string activity name:
+-- Walking
+-- Walking Upstairs
+-- Walking Downstairs
+-- Sitting
+-- Standing
+-- Laying
 
 ##Merging and Manipulating Data
 

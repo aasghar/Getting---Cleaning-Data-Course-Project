@@ -20,7 +20,45 @@ The work can be split into three parts:
 The data that was used in this Course was obtained from: (http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones). 
 The Data was downloaded using this link: (https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip). 
 
-A directory `G&CD_Dir` is created if it does not already exist and the data is downloaded in it. `unzip` function is used to unzip the files in the same directory. x_test, x_train, y_test, y_train, subject_test, subject_train and features files are loaded from their respective folders using the `read.table` function. `echo = FALSE`
+A directory `G&CD_Dir` is created if it does not already exist and the data is downloaded in it. `unzip` function is used to unzip the files in the same directory. x_test, x_train, y_test, y_train, subject_test, subject_train and features files are loaded from their respective folders using the `read.table` function. 
+
+The orginal x_test and x_train data consists of 561 variables. These 561 variables are named in the `features` data. The subject_test and subject_train data subject number that which each row of x_test and x_train data corresponds to. y_test and y_train data consists of the activity being performed by each subject. 
+
+##Merging, Cleaning and Manipulating Data
+
+First, the `dplyr` package was loaded (assuming that the user already has the package installed.). `dplyr` package is then used to merge, clean and manipulate the data. All the loaded dataframe are converted to `tbl_df` format for easier data manipulation and viewing. 
+
+`rbind_list` function from the `dplyr` package is used to merge x_test with x_train, y_test with y_train and subject_test with subject_train. 
+
+Then, descriptive names were given to variables in the `merged_XData` and `merged_YData` dataframes.
+
+Next `grepl` function is used to select columns that only contain `mean()` or `std()` values. `select` function is then used to eliminate columns with `meanFreq` values.
+
+Subsequently, values in `activity` column in `merged_YData` were given descriptive names that corresponded to the each number. 
+
+`1 WALKING, 2 = WALKING_UPSTAIRS, 3 = WALKING_DOWNSTAIRS, 4 = SITTING, 5 = STANDING, 6 = LAYING`
+
+Next, `merged_SubjectData`, `merged_YData` and `merged_XData` were all merged using `cbind` function to a new dataset called `tidyDataSet_1`. 
+
+To get a independent tidy data set with the average of each variable for each activity and each subject, the `tidyDataSet_1` was first grouped by `subject` and then by `activity` using the `group_by` funtion in the `dplyr` package. Then the `summarise` function was used to generate a new dataframe named `tidyDataSet_2` where the mean of each variable for each activity and each subject was given. The head of the resulting dataset is give below: 
+
+`
+> head(tidyDataSet_2)
+Source: local data frame [6 x 68]
+Groups: subject
+
+  subject           activity tBodyAcc.mean.X tBodyAcc.mean.Y tBodyAcc.mean.Z
+1       1             LAYING       0.2215982    -0.040513953      -0.1132036
+2       1            SITTING       0.2612376    -0.001308288      -0.1045442
+3       1           STANDING       0.2789176    -0.016137590      -0.1106018
+4       1            WALKING       0.2773308    -0.017383819      -0.1111481
+5       1 WALKING_DOWNSTAIRS       0.2891883    -0.009918505      -0.1075662
+6       1   WALKING_UPSTAIRS       0.2554617    -0.023953149      -0.0973020
+`
+
+
+
+
 
 
 

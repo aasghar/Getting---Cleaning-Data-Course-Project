@@ -1,11 +1,4 @@
----
-title: "ReadMe"
-author: "Ali Asghar"
-date: "Saturday, December 20, 2014"
-output: html_document
----
 
-I was able to follow the README in the directory that explained what the analysis files did. 
 
 #Getting and Cleaning Data Course Project
 

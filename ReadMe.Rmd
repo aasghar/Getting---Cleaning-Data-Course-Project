@@ -1,0 +1,44 @@
+---
+title: "ReadMe"
+author: "Ali Asghar"
+date: "Saturday, December 20, 2014"
+output: html_document
+---
+
+I was able to follow the README in the directory that explained what the analysis files did. 
+
+#Getting and Cleaning Data Course Project
+
+This repository contains the work that has been done to clean and tidy-up data for the Coursera 'Getting and Cleaning Data' Course.
+
+The work can be split into three parts: 
+- Downloading and Loading Data
+- Merging, Cleaning and Manipulating Data
+- Writing data to output file
+
+##Downloading and Loading Data
+The data that was used in this Course was obtained from: (http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones). 
+The Data was downloaded using this link: (https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip). 
+
+A directory 'G&CD_Dir' is created if it does not already exist and the data is downloaded in it. 'unzip' function is used to unzip the files in the same directory. x_test, x_train, y_test, y_train, subject_test, subject_train and features files are loaded from their respective folders using the 'read.table' function. 
+
+
+
+Include downloading original Data and saving it in the working file
+
+Include the code for reading the file in the ReadMe: 
+data <- read.table(file_path, header = TRUE) 
+"reference thread on Forum" : https://class.coursera.org/getdata-016/forum/thread?thread_id=50
+
+
+```{r}
+summary(cars)
+```
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

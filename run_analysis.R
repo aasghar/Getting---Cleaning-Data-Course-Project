@@ -5,22 +5,24 @@ setwd("./Github/Getting and Cleaning Data")
 
 
 file <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-download.file(file, "./CourseProject.zip")
+if(!file.exists(./G&CD_Dir)) { dir.create(G&CD_Dir)
+download.file(file, "./CourseProject.zip", method = "curl")
 
-unzip("./CourseProject.zip")
+unzip(".G&CD_Dir/CourseProject.zip")
 
 # Reading all test and training sets 
 
-x_test <- read.table("./UCI HAR Dataset/test/X_test.txt")
-y_test <- read.table("./UCI HAR Dataset/test/Y_test.txt")
-subject_test <- read.table("./UCI HAR Dataset/test/subject_test.txt")
+x_test <- read.table(".G&CD_Dir/UCI HAR Dataset/test/X_test.txt")
+y_test <- read.table(".G&CD_Dir/UCI HAR Dataset/test/Y_test.txt")
+subject_test <- read.table(".G&CD_Dir/UCI HAR Dataset/test/subject_test.txt")
 
-x_train <- read.table("./UCI HAR Dataset/train/X_train.txt")
-y_train <- read.table("./UCI HAR Dataset/train/Y_train.txt")
-subject_train <- read.table("./UCI HAR Dataset/train/subject_train.txt")
+x_train <- read.table(".G&CD_Dir/UCI HAR Dataset/train/X_train.txt")
+y_train <- read.table(".G&CD_Dir/UCI HAR Dataset/train/Y_train.txt")
+subject_train <- read.table(".G&CD_Dir/UCI HAR Dataset/train/subject_train.txt")
 
-features <- read.table("./UCI HAR Dataset/features.txt")
+features <- read.table(".G&CD_Dir/UCI HAR Dataset/features.txt")
 
+#load dplyr package for data processing
 library(dplyr)
 
 # transforming datasets to tbl_df type for use with dplyr package
@@ -37,7 +39,13 @@ merged_XData <- rbind_list(x_test, x_train)
 merged_YData <- rbind_list(y_test, y_train)
 merged_subjectData <- rbind_list(subject_test, subject_train)
 
-# give descriptive labels to all variables in the X and Y datasets.
+# Get rid of illegal characters such as "-" and "()" and give descriptive labels to all variables in the X and Y datasets.
+
+features$V2 <- as.character(features$V2)
+features$V2 <- sub("()", "", features$V2, fixed = TRUE)
+features$V2 <- sub("-", ".", features$V2, fixed = TRUE)
+features$V2 <- sub("-", ".", features$V2, fixed = TRUE)
+
 names(merged_XData) <- features$V2
 names(merged_YData) <- "activity"
 
@@ -67,9 +75,13 @@ names(merged_subjectData) <- "subject"
 tidyDataSet_1 <- cbind(merged_subjectData, merged_YData, merged_XData)
 
 
-#  Creating a second, independent tidy data set with the average of each variable for each activity and each subject.
+#  Step 5: Creating a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 tidyDataSet_2 <- tidyDataSet_1 %>%
     group_by(subject, activity) %>%
     summarise_each(funs(mean))
 
+# Writing tidy data to txt file in "output" directory folder
+
+if(!file.exists("./output")) { dir.create("./output") }
+write.csv(tidyDataSet_2, "./output/tidyData.txt") 

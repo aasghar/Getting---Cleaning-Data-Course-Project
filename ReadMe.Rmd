@@ -11,7 +11,7 @@ This Repository has the following files:
 
 The files are described below in detail: 
 ## run_analysis.R
-
+ 
 The work can be split into three parts: 
 - Downloading and Loading Data
 - Merging, Cleaning and Manipulating Data
@@ -71,7 +71,7 @@ write.csv(tidyDataSet_2, "./output/tidyData.txt")
 This text file can then be read by using this command (this code is used from the forum discussions and thus the thread is cited (https://class.coursera.org/getdata-016/forum/thread?thread_id=50): 
 
 ```{r}
-data <- read.table("./output/tidyData.txt", header = TRUE)
+data <- read.table("./output/tidyData.txt", header = TRUE, sep = ",")
 ```
 
 explain everything in the repository. 

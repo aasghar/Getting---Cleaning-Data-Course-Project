@@ -74,8 +74,6 @@ This text file can then be read by using this command (this code is used from th
 data <- read.table("./output/tidyData.txt", header = TRUE, sep = ",")
 ```
 
-explain everything in the repository. 
-
 
 ## CodeBook.md 
 
